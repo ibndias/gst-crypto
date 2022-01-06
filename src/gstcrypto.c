@@ -2,7 +2,7 @@
  * GStCrypto
  * Copyright, LCC (C) 2015 RidgeRun, LCC <carsten.behling@ridgerun.com>
  * Copyright, LCC (C) 2016 RidgeRun, LCC <jose.jimenez@ridgerun.com>
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
  * to deal in the Software without restriction, including without limitation
@@ -159,8 +159,8 @@ gst_crypto_class_init (GstCryptoClass * klass)
           G_PARAM_READWRITE | GST_PARAM_CONTROLLABLE));
   g_object_class_install_property (gobject_class, PROP_CIPHER,
       g_param_spec_string ("cipher", "Cipher",
-          "cypher string in openssl format, currently aes-128-cbc only",
-          "aes-128-cbc", G_PARAM_READWRITE));
+          "cypher string in openssl format, currently aria-128-cbc only",
+          "aria-128-cbc", G_PARAM_READWRITE));
   g_object_class_install_property (gobject_class, PROP_PASS,
       g_param_spec_string ("pass", "Pass", "crypto password", DEFAULT_PASS,
           G_PARAM_READWRITE | GST_PARAM_CONTROLLABLE));
@@ -214,7 +214,7 @@ gst_crypto_init (GstCrypto * filter)
   g_stpcpy (filter->mode, "enc");
   filter->is_encrypting = TRUE;
   filter->cipher = g_malloc (64);
-  g_stpcpy (filter->cipher, "aes-128-cbc");
+  g_stpcpy (filter->cipher, "aria-128-cbc");
   filter->pass = g_malloc (64);
   g_stpcpy (filter->pass, DEFAULT_PASS);
   filter->key = g_malloc (64);
